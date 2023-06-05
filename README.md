@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 ```bash
 # Uploads src/ to the board
-python build/main.py --port /dev/tty --baudrate 9600
+python build/main.py --port=/dev/tty --baudrate=9600
 
 # Press reset button on the board
 ```
