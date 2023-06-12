@@ -1,7 +1,7 @@
 import serial
 import time
 import os
-from mp_tool import MicroPythonTool
+from .mp_tool import MicroPythonTool
 
 class Arduino:
     def __init__(self, port: str, baudrate: int, mp_tool: MicroPythonTool):

@@ -1,6 +1,7 @@
-from device import Arduino
-from mp_tool import MicroPythonTool
-import argparse
+from .device import Arduino
+from .mp_tool import MicroPythonTool
+from .config import get_config
+from monitor.main import read_serial_loop
 
 def main(port, baudrate):
     mp_tool = MicroPythonTool(port)
@@ -8,9 +9,9 @@ def main(port, baudrate):
     arduino.upload()
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Upload MicroPython code to Arduino Nano 33 BLE')
-    parser.add_argument('-p', '--port', type=str, help='Serial port')
-    parser.add_argument('-b', '--baudrate', type=int, default=9600, help='Baudrate')
-
-    args = parser.parse_args()
-    main(args.port, args.baudrate)
+    config = get_config()
+    print("Uploading MicroPython code to Arduino Nano 33 BLE...")
+    main(config.SERIAL_PORT, config.BAUDRATE)
+    print("Uploading done.")
+    print("Click the reset button on the Arduino Nano 33 BLE to start the program.")
+    read_serial_loop()

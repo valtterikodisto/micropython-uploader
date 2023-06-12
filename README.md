@@ -11,10 +11,14 @@ pip install -r requirements.txt
 ### Usage
 
 ```bash
-# Uploads src/ to the board
-python build/main.py --port=/dev/tty --baudrate=9600
+# Set up .env and edit it
+cp .env.example .env
 
-# Press reset button on the board
+# Uploads src/ to the board (python -m build.main -h for help)
+# Run python -m build.main -l to list available serial ports
+python -m build.main
+
+# Press reset button on the board once the upload is complete
 ```
 
 ### Nano 33 BLE Sense Python Guide
